@@ -10,7 +10,7 @@ namespace CodeNetPad
         /// </summary>
         static void Main(string[] args)
         {
-            using (Editor game = new Editor())
+            using (CodeNetPad game = new CodeNetPad())
             {
                 game.Run();
             }

@@ -8,18 +8,22 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using CodeNetPad.GUI;
+using CodeNetPad.Drawing;
 
 namespace CodeNetPad
 {
     /// <summary>
     /// CodeNetPad begins here
     /// </summary>
-    public class Editor : Microsoft.Xna.Framework.Game
+    public class CodeNetPad : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        public Editor()
+        Editor editor;
+
+        public CodeNetPad()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -35,7 +39,7 @@ namespace CodeNetPad
             graphics.ApplyChanges();
 
             this.IsMouseVisible = true;
-            this.Window.Title = "CodeNetPad - Open Source Online Editor - 2012";
+            this.Window.Title = "CodeNetPad - Open Source Online Editor 2012";
             this.Window.AllowUserResizing = true;
             this.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
 
@@ -55,6 +59,14 @@ namespace CodeNetPad
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            Graph.Init(GraphicsDevice);
+
+            // Create Editor Element
+            editor = new Editor();
+            editor.X = 5;
+            editor.Y = 5;
+            editor.Width = 50;
+            editor.Height = 50;
         }
 
         /// <summary>
@@ -75,7 +87,8 @@ namespace CodeNetPad
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
-            
+            // Update Editor
+            editor.Update();
 
             base.Update(gameTime);
         }
@@ -86,14 +99,12 @@ namespace CodeNetPad
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
-
-            Texture2D tex = new Texture2D(GraphicsDevice, 1, 1, true, SurfaceFormat.Color);
-            tex.SetData(new[] { Color.White });
+            GraphicsDevice.Clear(new Color(185, 185, 185));
 
             spriteBatch.Begin();
 
-            spriteBatch.Draw(tex, new Rectangle(0, 0, 5, 5), Color.White);
+            // Drawing Editor
+            editor.Draw(spriteBatch);
 
             spriteBatch.End();
 
