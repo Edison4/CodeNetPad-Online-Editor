@@ -21,13 +21,14 @@ namespace CodeNetPad.Drawing
         }
 
         // Drawing Rectangle
-        public static void DrawRect(SpriteBatch sprite, Rectangle rect, Color color)
+        public static void DrawFillRect(SpriteBatch sprite, Rectangle rect, Color color)
         {
             sprite.Draw(tex, rect, color);
         }
-        public static void DrawRect(SpriteBatch sprite, int X, int Y, int W, int H, Color color)
+        public static void DrawFillRect(SpriteBatch sprite, int X, int Y, int W, int H, Color color)
         {
             sprite.Draw(tex, new Rectangle(X, Y, W, H), color);
         }
+
     }
 }

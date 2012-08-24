@@ -22,7 +22,7 @@ namespace CodeNetPad.GUI
 
         public void Draw(SpriteBatch sprite)
         {
-            Graph.DrawRect(sprite, X, Y, Width, Height, Color.White);
+            Graph.DrawFillRect(sprite, X, Y, Width, Height, Color.White);
         }
     }
 }
