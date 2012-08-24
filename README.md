@@ -2,8 +2,7 @@ CodeNetPad - Open Source Online Editor 2012
 
 ![CodeNetPad](http://dl.dropbox.com/u/99983316/C%23/CodeNetPad/LOGO_CodeNetPad.png)
 
-========================
-RUS:
+RUS
 	Онлайн редактор с подсветкой кода
 	
 	Создадим редактор исходного кода вместе для совместного создания проектов!
@@ -15,7 +14,7 @@ RUS:
 	
 	Свои изменения сливать в ветвь "publish"
 	
-ENG:
+ENG
 	Online Editor with the lighting code
 	
 	Create a source code editor together to create joint projects!
